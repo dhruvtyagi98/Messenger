@@ -1,0 +1,19 @@
+
+#login{
+  margin: 10%;
+  margin-inline: 30%;
+}
+
+#login > .card {
+  border-radius: 20px;
+}
+
+#login > .card > .card-title{
+  margin-top: 3%;
+  text-align: center;
+  font-family: 'Dongle', sans-serif;
+}
+
+#login > .card > .card-body{
+  margin-inline: 5%;
+}
