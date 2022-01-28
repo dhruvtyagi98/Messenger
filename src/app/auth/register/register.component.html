@@ -1,1 +1,47 @@
-<p>ajfbwafbajb</p>
+<div id="register">
+	<div class="card shadow-lg">
+		<div class="card-title">
+			<h1>Register</h1>
+		</div>
+		<div class="card-body">
+			<form #registerForm= "ngForm" (ngSubmit)="onSubmit(registerForm.value)">
+        <div class="mb-3 form-group">
+					<label for="name" class="form-label">Name</label>
+					<input type="text" [class.is-invalid]="name.invalid && name.touched" class="form-control" #name="ngModel" name="name" placeholder="Enter Name" ngModel required>
+          <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is Required</small>
+				</div>
+				<div class="mb-3 form-group">
+					<label for="email" class="form-label">Email address</label>
+					<input type="email" [class.is-invalid]="email.invalid && email.touched" class="form-control" #email="ngModel" name="email" placeholder="name@example.com" ngModel required>
+          <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is Required</small>
+				</div>
+        <div class="mb-3 form-group">
+					<label for="phone" class="form-label">Phone</label>
+					<input type="tel" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" #phone="ngModel" name="phone" placeholder="Enter Phone Number" ngModel required pattern="\d{10}$">
+          <div [class.d-none]="phone.valid || phone.untouched" *ngIf="phone.errors && (phone.invalid || phone.touched)">
+            <small class="text-danger" *ngIf="phone.errors['required']">Phone is Required</small>
+            <small class="text-danger" *ngIf="phone.errors['pattern']">Phone must be 10 digits</small>
+          </div>
+				</div>
+				<div class="mb-3 row">
+          <div class="col form-group">
+            <label for="password" class="form-label">Password</label>
+					  <input type="password" [class.is-invalid]="password.invalid && password.touched" class="form-control" #password="ngModel" name="password" ngModel required>
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is Required</small>
+          </div>
+          <div class="col form-group">
+            <label for="password_confirm" class="form-label">Confirm Password</label>
+					  <input type="password" [class.is-invalid]="confirm_password.invalid && confirm_password.touched" class="form-control" #confirm_password="ngModel" name="confirm_password" ngModel required>
+            <small class="text-danger" [class.d-none]="confirm_password.valid || confirm_password.untouched">Please Re-enter Password</small>
+          </div>
+				</div>
+				<div class="mb-3">
+					<p class="form-label">Already Registered? <a type="button" routerLink='/login' routerLinkActive='active' style="color: blue;">Login</a></p>
+				</div>
+				<div class="mb-3 d-flex justify-content-center">
+					<button [disabled]="registerForm.form.invalid" class="btn btn-primary" style="width: 100%;" type="submit">Register</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

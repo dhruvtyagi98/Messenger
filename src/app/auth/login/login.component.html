@@ -1,25 +1,27 @@
 <div id="login">
-  <div class="card shadow-lg">
-      <div class="card-title">
-          <h1>Login</h1>
-      </div>
-      <div class="card-body">
-          <form action="">
-              <div class="mb-3">
-                  <label for="login_email" class="form-label">Email address</label>
-                  <input type="email" class="form-control" name="login_email" placeholder="name@example.com">
-              </div>
-              <div class="mb-3">
-                  <label for="login_password" class="form-label">Password</label>
-                  <input type="password" class="form-control" name="login_password">
-              </div>
-              <div class="mb-3">
-                  <p class="form-label">Already Registered? <a type="button" style="color: blue;">Login</a></p>
-              </div>
-              <div class="mb-3 d-flex justify-content-center">
-                  <button (click)="getRegisterView()" class="btn btn-primary" type="submit">Login</button>
-              </div>
-          </form>
-      </div>
-  </div>
+	<div class="card shadow-lg">
+		<div class="card-title">
+			<h1>Login</h1>
+		</div>
+		<div class="card-body">
+			<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform.value)">
+				<div class="mb-3">
+					<label for="login_email" class="form-label">Email address</label>
+					<input type="email" [class.is-invalid]="name.invalid && name.touched" #name="ngModel" ngModel required class="form-control" name="login_email" placeholder="name@example.com">
+          <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is Required</small>
+				</div>
+				<div class="mb-3">
+					<label for="login_password" class="form-label">Password</label>
+					<input type="password" [class.is-invalid]="password.invalid && password.touched" #password="ngModel" ngModel required class="form-control" name="login_password">
+          <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is Required</small>
+				</div>
+				<div class="mb-3">
+					<p class="form-label">Not Registered? <a type="button" routerLink='/register' routerLinkActive='active' style="color: blue;">Register</a></p>
+				</div>
+				<div class="mb-3 d-flex justify-content-center">
+					<button [disabled]="loginform.form.invalid" class="btn btn-primary" style="width: 100%;" type="submit">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
