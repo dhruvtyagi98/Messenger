@@ -1,0 +1,24 @@
+
+#register{
+  margin-inline: 10%;
+  margin-inline: 30%;
+  margin-top: 5%;
+}
+
+#register > .card {
+  border-radius: 20px;
+}
+
+#register > .card > .card-title{
+  margin-top: 3%;
+  text-align: center;
+  font-family: 'Dongle', sans-serif;
+}
+
+#register > .card > .card-body{
+  margin-inline: 5%;
+}
+
+a{
+  text-decoration: none;
+}

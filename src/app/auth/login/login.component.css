@@ -17,3 +17,7 @@
 #login > .card > .card-body{
   margin-inline: 5%;
 }
+
+a{
+  text-decoration: none;
+}
