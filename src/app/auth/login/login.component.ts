@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user/user';
 import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +11,24 @@ import { UserService } from 'src/app/services/user/user.service';
 export class LoginComponent {
   title = 'Messenger | Login';
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private route: Router
+  ) { }
 
   onSubmit(data: User){
+    var route = this.route;
     let user = new User('',data.email,0 ,data.password, '');
 
     this.userService.login(user)
       .subscribe(
-        data => console.log('User Registered', data),
-        error => console.error('Error', error)
+        (data:any) => {
+          if (data.hasOwnProperty('token')) {
+            document.cookie = "token="+data.token+"?email="+data.email;
+            this.route.navigate(['home']);
+          }
+        },
+        error => console.error('Error', error),
       )
   }
 }

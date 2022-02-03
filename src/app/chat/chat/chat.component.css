@@ -1,0 +1,37 @@
+#chat_navbar{
+  width: 100%;
+  height: 56px;
+  background-color: #55b72e;
+  margin-left: 26%;
+}
+
+#chat_navbar > .row > #sender_name{
+  margin-left: 5%;
+}
+
+#send_message{
+  width: 100%;
+  height: 56px;
+  background-color: #2e85b7;
+  margin-left: 26%;
+}
+
+#send_message > .row > .col-8 > input{
+  width: 100%;
+  background-color: #2e85b7;
+  border-inline: none;
+  border-top: none;
+  margin-top: 1%;
+  margin-inline: 1%;
+  margin-right: 50%;
+  color: white;
+  outline: none;
+}
+
+#send_message > .row > .col-8 > ::placeholder{
+  color: white;
+}
+
+#send_message > .row > .col-8 > input:focus{
+  border-bottom: 2px solid white;
+}

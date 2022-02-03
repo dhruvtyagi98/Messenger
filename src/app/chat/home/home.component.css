@@ -1,0 +1,31 @@
+#sidebar{
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  background-color: #1c1d1f;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+#sidebar >.sidebar_element > a{
+  text-decoration: none;
+  color: azure;
+  margin-left: 5%;
+  margin-block: 5%;
+  margin-right: 0%;
+}
+
+.sidebar-element{
+  padding-right: none;
+}
+
+#navbarSupportedContent > ul > li > .active{
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.nav-item > a{
+  cursor: pointer;
+}
+

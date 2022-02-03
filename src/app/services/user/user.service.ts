@@ -10,10 +10,18 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   register(user: User){
-    return this.http.post(this.url+'register', {body:user, headers:{'Access-Control-Allow-Origin':'*'}});
+    return this.http.post(this.url+'register', user);
   }
 
   login(user: User){
-    return this.http.post(this.url+'login', {body:user, headers:{'Access-Control-Allow-Origin':'*'}});
+    return this.http.post(this.url+'login', user);
+  }
+
+  getUser(token: string, email:string){
+    return this.http.post(this.url+'user', {token,email});
+  }
+
+  addContact(name:string, phone:number, token: string, email:string){
+    return this.http.post(this.url+'contacts', {name, phone, token, email});
   }
 }

@@ -1,3 +1,34 @@
-<div id="home">
+<div id="sidebar">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2e85b7;">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color: white;"><b>Messenger</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a  [class.active]="url == 'chats'" class="nav-link" (click) = "setUrl('chats')">Chats</a>
+          </li>
+          <li class="nav-item">
+            <a [class.active]="url == 'contacts'" class="nav-link" (click) = "setUrl('contacts')">Contacts</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <div *ngIf="url == 'contacts'">
+    <app-contacts></app-contacts>
+  </div>
+  <!-- <div *ngIf="url == 'chats'">
+    <app-contacts></app-contacts>
+  </div> -->
 </div>
+
+<app-chat></app-chat>
+
+<script src="Backend/socket.io/socket.io.js"></script>
+<script>
+  io();
+</script>
