@@ -1,0 +1,33 @@
+#contacts > .row > .col{
+  text-decoration: none;
+  color: azure;
+  margin-left: 5%;
+  margin-block: 5%;
+  margin-right: 0%;
+}
+
+#contacts > .row > .col-1{
+  text-decoration: none;
+  color: azure;
+  margin-left: 5%;
+  margin-block: 5%;
+  margin-right: 0%;
+}
+
+#add_contact{
+  margin-bottom: 30px;
+  margin-left: 20%;
+}
+
+#add_contact > button{
+  padding: 12px;
+  padding-inline: 24px;
+  border-radius: 33px;
+  font-size: 30px;
+  background-color: rgb(137, 207, 66);
+  color: white;
+}
+
+#contacts{
+  margin-right: 0;
+}

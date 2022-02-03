@@ -1,0 +1,14 @@
+<div class="row" id="contacts">
+  <div *ngFor="let contact of contacts; index as i;" class="row">
+    <div class="col-1">{{i+1}}</div>
+    <div class="col">
+      {{contact['name']}}
+    </div>
+    <div class="col">
+      {{contact['phone']}}
+    </div>
+  </div>
+</div>
+<div class="fixed-bottom" id="add_contact">
+  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#add_contact"><b>+</b></button>
+</div>

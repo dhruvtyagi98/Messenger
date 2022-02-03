@@ -1,5 +1,32 @@
-<div *ngIf="token">
-  <app-login></app-login>
+<!-- Add Contact Modal -->
+<div class="modal fade" id="add_contact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
+      </div>
+      <div class="modal-body">
+        <form #addContactForm="ngForm" (ngSubmit)="createContact(addContactForm.value)">
+          <div class="mb-3 form-group">
+            <label for="contact_name" class="form-label">Name</label>
+            <input type="email" [class.is-invalid]="name.invalid && name.touched" #name="ngModel" ngModel required class="form-control" name="name" placeholder="Enter Name">
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is Required</small>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" #phone="ngModel" name="phone" placeholder="Enter Phone Number" ngModel required pattern="\d{10}$">
+            <div [class.d-none]="phone.valid || phone.untouched" *ngIf="phone.errors && (phone.invalid || phone.touched)">
+              <small class="text-danger" *ngIf="phone.errors['required']">Phone is Required</small>
+              <small class="text-danger" *ngIf="phone.errors['pattern']">Phone must be 10 digits</small>
+            </div>
+          </div>
+          <button type="submit" [disabled]="addContactForm.form.invalid" class="btn btn-primary" style="width: 100%;">Add Contact</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <router-outlet></router-outlet>
 </div>
 
-<router-outlet></router-outlet>

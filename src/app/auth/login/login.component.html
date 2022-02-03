@@ -7,12 +7,12 @@
 			<form #loginform="ngForm" (ngSubmit)="onSubmit(loginform.value)">
 				<div class="mb-3">
 					<label for="login_email" class="form-label">Email address</label>
-					<input type="email" [class.is-invalid]="name.invalid && name.touched" #name="ngModel" ngModel required class="form-control" name="login_email" placeholder="name@example.com">
+					<input type="email" [class.is-invalid]="name.invalid && name.touched" #name="ngModel" ngModel required class="form-control" name="email" placeholder="name@example.com">
           <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is Required</small>
 				</div>
 				<div class="mb-3">
 					<label for="login_password" class="form-label">Password</label>
-					<input type="password" [class.is-invalid]="password.invalid && password.touched" #password="ngModel" ngModel required class="form-control" name="login_password">
+					<input type="password" [class.is-invalid]="password.invalid && password.touched" #password="ngModel" ngModel required class="form-control" name="password">
           <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is Required</small>
 				</div>
 				<div class="mb-3">
